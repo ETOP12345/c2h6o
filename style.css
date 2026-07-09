@@ -206,25 +206,48 @@ body {
 .project-card-link:hover .project-card {
     box-shadow: 0 12px 30px rgba(74, 158, 255, 0.3);
     transform: translateY(-8px);
-    background-color: #252525;
 }
 
 .project-card {
     background-color: #252525;
+    background-size: cover;
+    background-position: center;
     padding: 2rem;
     border-radius: 10px;
     border-left: 4px solid var(--secondary-color);
     transition: all 0.3s ease;
     animation: slideUp 0.6s ease-out;
     position: relative;
-    height: 100%;
+    height: 300px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.project-card:hover {
-    box-shadow: var(--shadow);
-    transform: translateX(5px);
+/* Dark overlay for project cards */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.project-card-link:hover .project-card::before {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.project-overlay {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card h3 {
@@ -239,20 +262,6 @@ body {
     flex-grow: 1;
 }
 
-.project-link {
-    display: inline-block;
-    color: var(--secondary-color);
-    font-weight: 600;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.project-card-link:hover .project-link {
-    color: #ff6b6b;
-    transform: translateX(3px);
-}
-
 .tag {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -261,7 +270,6 @@ body {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 1rem;
     width: fit-content;
 }
 
@@ -334,6 +342,8 @@ body {
 .contact-button {
     display: inline-block;
     background-color: var(--secondary-color);
+    background-size: cover;
+    background-position: center;
     color: var(--white);
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -341,10 +351,36 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     animation: fadeIn 0.8s ease-in;
+    position: relative;
+    overflow: hidden;
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark overlay for contact buttons */
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.contact-button {
+    z-index: 1;
 }
 
 .contact-button:hover {
-    background-color: #3a8eef;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(74, 158, 255, 0.3);
 }
@@ -486,5 +522,9 @@ footer p {
 
     .section {
         padding: 1.5rem 1rem;
+    }
+
+    .project-card {
+        height: 200px;
     }
 }
