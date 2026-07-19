@@ -35,7 +35,7 @@ body {
    ============================================= */
 
 .hero {
-    background: linear-gradient(135deg, #0f0f0f, #2a2a2a);
+    background: url('images/baryon_asymmetry_2x.png');
     color: var(--white);
     min-height: 100vh;
     display: flex;
