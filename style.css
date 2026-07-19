@@ -35,7 +35,7 @@ body {
    ============================================= */
 
 .hero {
-    background: url('images/baryon_asymmetry_2x.png');
+    background: url('images/cell_organelles_2x.png');
     color: var(--white);
     min-height: 100vh;
     display: flex;
