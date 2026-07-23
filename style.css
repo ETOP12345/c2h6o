@@ -35,7 +35,7 @@ body {
    ============================================= */
 
 .hero {
-    background: url('images/cell_organelles_2x.png');
+    background: linear-gradient(135deg, #2a5f8f, #1e4570);
     color: var(--white);
     min-height: 100vh;
     display: flex;
